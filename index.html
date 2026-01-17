@@ -158,6 +158,16 @@ body{
   max-width:680px;
   font-size:18px;
 }
+@media(max-width:768px){
+  .hero-inner{
+    padding:40px 18px;
+  }
+
+  .hero p{
+    font-size:15px;
+    line-height:1.5;
+  }
+}
 
 /* ================= SECTIONS ================= */
 section{
@@ -366,6 +376,12 @@ const navLinks=document.getElementById("navLinks");
 navToggle.onclick=()=>navLinks.classList.toggle("open");
 document.querySelectorAll('.nav-links a').forEach(a=>{
   a.onclick=()=>navLinks.classList.remove("open");
+});
+
+</script>
+<script>
+document.querySelectorAll('.nav-links a').forEach(link=>{
+  link.onclick=()=>navLinks.classList.remove("open");
 });
 </script>
 
