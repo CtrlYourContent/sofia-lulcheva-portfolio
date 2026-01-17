@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Стайко Кирилов Стайков – Портфолио</title>
+
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Стайко Кирилов Стайков – Портфолио</title>
+
+<style>
+:root{
+  --bg:#eef6f0;
+  --card:#ffffff;
+  --accent:#b8e0c2;
+  --accent-dark:#4f9a6a;
+  --text-main:#1f2d26;
+  --text-soft:#5e7568;
+  --shadow:0 16px 40px rgba(0,0,0,.08);
+  --radius:24px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text-main);
+  line-height:1.7;
+}
+
+/* ================= NAV ================= */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(238,246,240,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
+
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.nav-logo{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid var(--accent-dark);
+}
+
+.nav-logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.nav-name{
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:.08em;
+}
+
+.nav-links{
+  display:flex;
+  gap:18px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--text-main);
+  font-size:14px;
+}
+
+.nav-toggle{
+  display:none;
+  font-size:26px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* MOBILE NAV */
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;
+    top:64px;
+    left:0;
+    right:0;
+    background:#eef6f0;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    padding:18px 0 22px;
+    transform:translateY(-120%);
+    transition:.35s ease;
+    z-index:999;
+  }
+  .nav-links.open{ transform:translateY(0); }
+  .nav-toggle{ display:block; }
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.25)),
+    url("images/logoimage.png") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+}
+
+.hero-inner{
+  max-width:1200px;
+  padding:90px 20px 70px;
+  color:#fff;
+}
+
+.hero-pill{
+  display:inline-block;
+  padding:6px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.2);
+  font-size:13px;
+  margin-bottom:14px;
+}
+
+.hero h1{
+  font-size:clamp(34px,6vw,54px);
+  margin-bottom:14px;
+}
+
+.hero p{
+  max-width:620px;
+  font-size:18px;
+}
+
+/* ================= SECTIONS ================= */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:60px 16px 0;
+}
+
+.section-inner{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:36px;
+  box-shadow:var(--shadow);
+}
+
+.section-title{
+  font-size:26px;
+  margin-bottom:20px;
+}
+
+/* ================= ACCORDION ================= */
+.accordion-item{
+  margin-bottom:14px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#f3fbf5;
+}
+
+.accordion-title{
+  width:100%;
+  padding:16px 20px;
+  font-size:16px;
+  font-weight:600;
+  background:#e1f3e7;
+  border:none;
+  text-align:left;
+  cursor:pointer;
+}
+
+.accordion-content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+}
+
+.accordion-inner{
+  padding:18px 20px;
+}
+
+.accordion-inner p{margin-bottom:10px}
+.accordion-inner ul{padding-left:18px}
+.accordion-inner li{margin-bottom:6px}
+
+.play-link{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px dashed rgba(79,154,106,.6);
+}
+.play-link:hover{color:var(--accent-dark)}
+
+/* ================= GALLERY ================= */
+.gallery-wrapper{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.gallery-track{
+  display:flex;
+  transition:transform .6s ease;
+}
+
+.gallery-slide{
+  flex:0 0 100%;
+  height:360px;
+  background:#000 center/contain no-repeat;
+}
+
+.gallery-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:none;
+  background:#fff;
+  cursor:pointer;
+  font-size:20px;
+}
+
+#prev{left:10px}
+#next{right:10px}
+
+/* ================= VIDEO ================= */
+.video-wrapper{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  background:#000;
+}
+
+.video-track{
+  display:flex;
+  transition:transform .6s ease;
+}
+
+.video-slide{
+  flex:0 0 100%;
+  padding:20px;
+}
+
+.video-frame{
+  position:relative;
+  padding-bottom:56.25%;
+}
+
+.video-frame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+
+/* ================= CONTACT ================= */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.contact-box{
+  background:#f3fbf5;
+  border-radius:16px;
+  padding:22px;
+}
+
+/* ================= MUSIC ================= */
+.music-player{
+  position:fixed;
+  bottom:calc(20px + env(safe-area-inset-bottom));
+  right:20px;
+  z-index:99999;
+}
+
+.music-player button{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,.95);
+  border:1px solid rgba(0,0,0,.1);
+  border-radius:999px;
+  padding:12px 18px;
+  cursor:pointer;
+  box-shadow:0 10px 26px rgba(0,0,0,.18);
+}
+
+.music-notice{
+  position:fixed;
+  bottom:calc(80px + env(safe-area-inset-bottom));
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,.95);
+  padding:10px 16px;
+  border-radius:999px;
+  display:flex;
+  gap:10px;
+  z-index:99998;
+  transition:.35s;
+}
+
+.music-notice.hide{opacity:0;pointer-events:none}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+  .gallery-slide{height:260px}
+  .contact-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <div class="nav-logo"><img src="images/logoimage.png"></div>
+      <div class="nav-name">СТАЙКО СТАЙКОВ</div>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">За мен</a>
+      <a href="#career">Път</a>
+      <a href="#gallery">Галерия</a>
+      <a href="#video">Видео</a>
+      <a href="#contact">Контакт</a>
+    </div>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </div>
+</div>
+
+
+<!-- HERO -->
+<header class="hero" id="about">
+  <div class="hero-inner">
+    <div class="hero-pill">Актьор • Кукловод</div>
+    <h1>Стайко Кирилов Стайков</h1>
+    <p>
+      Професионален път в театъра, киното и независимите сценични форми,
+      с фокус върху съвременното куклено изкуство, физическия театър,
+      работата с обект и авторските сценични проекти.
+    </p>
+  </div>
+</header>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="section-inner">
+    <h2 class="section-title">Професионален път</h2>
+
+    <!-- ДКТ Пловдив -->
+    <div class="accordion-item">
+      <button class="accordion-title">🎭 Актьорски опит</button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p><strong>Държавен куклен театър – Пловдив</strong></p>
+          <p><em>септември 2020 – до момента</em></p>
+
+          <p>
+            Репертоарен актьор с участия в детски и вечерни спектакли.
+            Работа в класически и съвременни куклени и хибридни сценични форми.
+            Участия в национални и международни фестивали.
+          </p>
+
+          <p><strong>Спектакли за деца:</strong></p>
+          <ul>
+  <li>„Не си търси белята“ – реж. Ваня Иванова</li>
+  <li>„Палечка“ – реж. Ваня Сивинова</li>
+  <li>„Трите прасенца“ – реж. Лео Капон</li>
+  <li>„Необикновената принцеса“ – реж. Евелина Кьосовска</li>
+  <li>„Дивите лебеди“ – реж. Евелина Кьосовска</li>
+
+  <li>
+    <a class="play-link"
+       href="https://pptheatre.com/bg/plays/p/409-%D0%B4%D1%8F%D0%B4%D0%BE-%D0%BA%D0%BE%D0%BB%D0%B5%D0%B4%D0%B0-%D0%BA%D1%8A%D0%B4%D0%B5-%D1%81%D0%B8"
+       target="_blank" rel="noopener">
+      „Дядо Коледа, къде си?“
+    </a>
+    – реж. Евелина Кьосовска и Веселин Бойдев
+  </li>
+
+  <li>„Пешеходна зона“ – реж. Евелина Кьосовска и Веселин Бойдев</li>
+
+  <li>
+    <a class="play-link"
+       href="https://pptheatre.com/bg/plays/p/379-%D0%BC%D0%B5%D1%87%D0%BE-%D0%BF%D1%83%D1%85"
+       target="_blank" rel="noopener">
+      „Мечо Пух“
+    </a>
+    – реж. Анна Валерия Гостанян
+  </li>
+
+  <li>„Незнайко в Слънчевия град“ – реж. Елица Петкова</li>
+  <li>„Приказка за оловния войник“ – реж. Румен Караманов</li>
+  <li>„Кентървилският призрак“ – реж. Елица Петкова</li>
+  <li>„ПУК“ – реж. Димитър Стефанов</li>
+</ul>
+
+<p><strong>Спектакли за възрастни:</strong></p>
+<ul>
+  <li>„Бомбето“ – реж. Катя Петрова</li>
+  <li>„Хамлет“ – реж. Съби Събев</li>
+  <li>„Принцът на морето и принцът на земята“ – реж. Елена Панайотова</li>
+
+  <li>
+    <a class="play-link"
+       href="https://pptheatre.com/bg/plays/p/407-%D0%B0%D0%BF%D0%BE%D0%BA%D0%B0%D0%BB%D0%B8%D0%BF%D1%81%D0%B8%D1%81%D1%8A%D1%82-%D0%B8%D0%B4%D0%B2%D0%B0-%D0%B2-%D1%88%D0%B5%D1%81%D1%82-%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D1%82%D0%B0"
+       target="_blank" rel="noopener">
+      „Апокалипсисът идва в 6 вечерта“
+    </a>
+    – реж. Лео Капон
+  </li>
+
+  <li>„По ръба на небето“ – реж. Веселка Кунчева</li>
+</ul>
+
+          </ul>
+
+
+          <p><strong>Младежки театър „Николай Бинев“ - София</strong></p>
+          <ul>
+            <li>„Принцесата и скъсаните обувки“ – реж. Славчо Маленов</li>
+          </ul>
+
+          <p><strong>Независими проекти</strong></p>
+          <ul>
+            <li>„Островът на съкровищата 2.0“ – реж. Емил Йорданов</li>
+            <li>„Самодива“ – реж. Михаела Андонова</li>
+            <li>„Фермата на животните“ – реж. Laurent Festas</li>
+            <li>„Творческа лаборатория П.И.Ф“ – реж. Веселка Кунчева</li>
+            <li>„Демоня“ – реж. Ованес Торосян</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Филми и реклами -->
+    <div class="accordion-item">
+      <button class="accordion-title">🎬 Филми и реклами</button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p><strong>Филми:</strong></p>
+          <ul>
+            <li>„Доза щастие“ – реж. Яна Титова (статист)</li>
+            <li>Късометражен филм „Завръщане в бъдещето“ – реж. Богомил Найденов</li>
+          </ul>
+
+          <p><strong>Реклами:</strong></p>
+          <ul>
+            <li>Hard Working Beavers – The Woodsman Whisky</li>
+            <li>Sting Energy Drink</li>
+            <li>Фервекс</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Озвучаване -->
+    <div class="accordion-item">
+      <button class="accordion-title">🎙 Озвучаване</button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <ul>
+            <li>„Мулан“ (2020)</li>
+            <li>„Зайчето Питър“</li>
+            <li>„DC – Лигата на супер-любимците“</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Образование -->
+    <div class="accordion-item">
+      <button class="accordion-title">🎓 Образование</button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p><strong>НАТФИЗ „Кръстьо Сарафов“ – София</strong></p>
+          <p>Бакалавър – Актьорско майсторство за куклен театър</p>
+          <p><em>септември 2016 – юли 2020</em></p>
+          <p>Клас: проф. Жени Пашова</p>
+          <p>Асистенти: доц. Петър Пашов, Михаела Тюлева</p>
+
+          <p style="margin-top:12px;"><strong>Средно образование:</strong></p>
+          <p>НПГПТО „Ломоносов“ – София</p>
+          <p>Паралелка: кино, аудио и видео (2014 – 2019)</p>
+        </div>
+      </div>
+    </div>
+    <!-- Умения -->
+    <div class="accordion-item">
+      <button class="accordion-title">🛠 Умения</button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <ul>
+            <li>Кукловодство</li>
+            <li>Сценично движение</li>
+            <li>Физически театър</li>
+            <li>Озвучаване</li>
+            <li>Пеене</li>
+            <li>Танци</li>
+            <li>Режисура</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- КуклаБГ -->
+    <div class="accordion-item">
+      <button class="accordion-title">🌱 КуклаБГ</button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>
+            Участник и съ-създател на платформа за съвременно куклено изкуство,
+            експериментални формати и независими сценични проекти.
+          </p>
+          <iframe
+            width="100%"
+            height="360"
+            src="https://www.youtube.com/embed/videoseries?list=PLAC6AjjM_MUQLKFU_PWVlYVOSPRtCKL6P"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <h2 class="section-title">Галерия</h2>
+    <div class="gallery-wrapper">
+      <div class="gallery-track" id="gtrack">
+        <div class="gallery-slide" style="background-image:url('images/image01.png')"></div>
+        <div class="gallery-slide" style="background-image:url('images/image02.png')"></div>
+        <div class="gallery-slide" style="background-image:url('images/image03.png')"></div>
+        <div class="gallery-slide" style="background-image:url('images/image04.png')"></div>
+        <div class="gallery-slide" style="background-image:url('images/image05.png')"></div>
+        <div class="gallery-slide" style="background-image:url('images/image06.png')"></div>
+        <div class="gallery-slide" style="background-image:url('images/image07.png')"></div>
+      </div>
+      <button class="gallery-btn" id="prev">‹</button>
+      <button class="gallery-btn" id="next">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="section-inner">
+    <h2 class="section-title">Видео</h2>
+    <div class="video-wrapper">
+      <div class="video-track" id="vtrack">
+        <div class="video-slide">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/Ejy9zaPbenk" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="video-slide">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/Sw-LYfxsODI" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <button class="video-btn" id="vprev">‹</button>
+      <button class="video-btn" id="vnext">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <h2 class="section-title">Контакти</h2>
+
+    <div class="contact-grid">
+      <div class="contact-box">
+        <h3>📧 E-mail</h3>
+        <p>stanoyy@gmail.com</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>📞 Телефон</h3>
+        <p>+359 8756 9694</p>
+        <!-- смени с точния номер от CV-то -->
+      </div>
+
+      <div class="contact-box">
+        <h3>🎭 Театър</h3>
+        <p>Държавен куклен театър – Пловдив</p>
+        <p>Репертоарен актьор</p>
+      </div>
+    </div>
+  </div>
+<!-- MUSIC -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="audio/background.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-notice" id="musicNotice">
+  🎵 Музиката е включена
+  <button id="noticeToggle">Пауза</button>
+</div>
+
+<div class="music-player">
+  <button id="musicToggle">
+    <span id="musicIcon">❚❚</span>
+    <span id="musicLabel">Пауза</span>
+  </button>
+</div>
+
+
+
+<footer>
+© 2026 Стайко Кирилов Стайков – Портфолио
+</footer>
+
+<script>
+
+/* ACCORDION */
+document.querySelectorAll('.accordion-title').forEach(btn=>{
+  btn.onclick=()=>{
+    const c=btn.nextElementSibling;
+    c.style.maxHeight=c.style.maxHeight?null:c.scrollHeight+"px";
+  }
+});
+
+/* GALLERY */
+let gi=0;
+const gtrack=document.getElementById('gtrack');
+const gslides=gtrack.children;
+document.getElementById('next').onclick=()=>{gi=(gi+1)%gslides.length;gtrack.style.transform=`translateX(-${gi*100}%)`;}
+document.getElementById('prev').onclick=()=>{gi=(gi-1+gslides.length)%gslides.length;gtrack.style.transform=`translateX(-${gi*100}%)`;}
+
+/* VIDEO */
+let vi=0;
+const vtrack=document.getElementById('vtrack');
+const vslides=vtrack.children;
+document.getElementById('vnext').onclick=()=>{vi=(vi+1)%vslides.length;vtrack.style.transform=`translateX(-${vi*100}%)`;}
+document.getElementById('vprev').onclick=()=>{vi=(vi-1+vslides.length)%vslides.length;vtrack.style.transform=`translateX(-${vi*100}%)`;}
+</script>
+<script>
+const navToggle=document.getElementById("navToggle");
+const navLinks=document.getElementById("navLinks");
+navToggle.onclick=()=>navLinks.classList.toggle("open");
+
+/* MUSIC */
+const music=document.getElementById("bgMusic");
+const toggle=document.getElementById("musicToggle");
+const icon=document.getElementById("musicIcon");
+const label=document.getElementById("musicLabel");
+const notice=document.getElementById("musicNotice");
+const noticeBtn=document.getElementById("noticeToggle");
+
+let playing=false;
+
+function updateUI(){
+  icon.textContent=playing?"❚❚":"▶";
+  label.textContent=playing?"Пауза":"Пусни";
+  noticeBtn.textContent=label.textContent;
+}
+
+function toggleMusic(){
+  if(playing){ music.pause(); }
+  else{ music.play().catch(()=>{}); }
+  playing=!playing;
+  updateUI();
+  notice.classList.remove("hide");
+  setTimeout(()=>notice.classList.add("hide"),3000);
+}
+
+toggle.onclick=toggleMusic;
+noticeBtn.onclick=toggleMusic;
+
+// първи gesture
+window.addEventListener("click",()=>{ if(!playing){toggleMusic();} },{once:true});
+</script>
+
+
+
+
+</body>
+</html>
