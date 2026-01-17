@@ -93,26 +93,6 @@ body{
   cursor:pointer;
 }
 
-/* ================= MOBILE NAV OVERLAY ================= */
-@media(max-width:768px){
-  .nav-links{
-    position:fixed;
-    top:64px;
-    left:0;
-    right:0;
-    background:#eef6f0;
-    flex-direction:column;
-    align-items:center;
-    gap:14px;
-    padding:18px 0 22px;
-    transform:translateY(-120%);
-    transition:.35s ease;
-    z-index:999;
-  }
-  .nav-links.open{ transform:translateY(0); }
-  .nav-toggle{ display:block; }
-}
-
 /* ================= HERO ================= */
 .hero{
   min-height:100vh;
@@ -363,10 +343,6 @@ document.getElementById('prev').onclick=()=>{
 const navToggle=document.getElementById("navToggle");
 const navLinks=document.getElementById("navLinks");
 
-navToggle.onclick=()=>navLinks.classList.toggle("open");
-document.querySelectorAll('.nav-links a').forEach(a=>{
-  a.onclick=()=>navLinks.classList.remove("open");
-});
 
 </script>
 
