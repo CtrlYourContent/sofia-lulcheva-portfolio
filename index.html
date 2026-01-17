@@ -28,18 +28,19 @@ body{
 
 /* ================= NAV ================= */
 .nav{
-  position:sticky;
+  position:fixed;
   top:0;
+  left:0;
+  right:0;
   z-index:1000;
-  background:rgba(242,244,247,.95);
+  background:rgba(0,0,0,.35);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(0,0,0,.05);
 }
 
 .nav-inner{
   max-width:1200px;
   margin:auto;
-  padding:12px 16px;
+  padding:10px 16px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -69,6 +70,7 @@ body{
   font-weight:600;
   font-size:13px;
   letter-spacing:.08em;
+  color:#fff;
 }
 
 .nav-links{
@@ -78,7 +80,7 @@ body{
 
 .nav-links a{
   text-decoration:none;
-  color:var(--text-main);
+  color:#fff;
   font-size:14px;
 }
 
@@ -87,21 +89,19 @@ body{
   font-size:26px;
   background:none;
   border:none;
+  color:#fff;
   cursor:pointer;
 }
-.hero + .nav,
-.nav {
-  background: rgba(0,0,0,0.35);
-  border-bottom: none;
-}
 
-
-/* MOBILE NAV */
+/* ================= MOBILE NAV OVERLAY ================= */
 @media(max-width:768px){
+  .nav-toggle{
+    display:block;
+  }
+
   .nav-links{
     position:fixed;
     inset:0;
-    top:0;
     background:rgba(242,244,247,.96);
     backdrop-filter:blur(12px);
     flex-direction:column;
@@ -109,16 +109,19 @@ body{
     justify-content:center;
     gap:22px;
     transform:translateY(-100%);
-    transition:.35s ease;
+    transition:transform .35s ease;
     z-index:9999;
+  }
+
+  .nav-links.open{
+    transform:translateY(0);
   }
 
   .nav-links a{
     font-size:18px;
+    color:#111;
   }
 }
-
-
 
 /* ================= HERO ================= */
 .hero{
@@ -128,6 +131,7 @@ body{
     url("images/bgimage.JPG") center/cover no-repeat;
   display:flex;
   align-items:center;
+  padding-top:64px; /* space for fixed nav */
 }
 
 .hero-inner{
@@ -203,7 +207,6 @@ section{
   padding:18px 20px;
 }
 
-.accordion-inner p{margin-bottom:10px}
 .accordion-inner ul{padding-left:18px}
 .accordion-inner li{margin-bottom:6px}
 
@@ -240,36 +243,6 @@ section{
 
 #prev{left:10px}
 #next{right:10px}
-
-/* ================= VIDEO ================= */
-.video-wrapper{
-  position:relative;
-  overflow:hidden;
-  border-radius:20px;
-  background:#000;
-}
-
-.video-track{
-  display:flex;
-  transition:transform .6s ease;
-}
-
-.video-slide{
-  flex:0 0 100%;
-  padding:20px;
-}
-
-.video-frame{
-  position:relative;
-  padding-bottom:56.25%;
-}
-
-.video-frame iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-}
 
 /* ================= CONTACT ================= */
 .contact-grid{
@@ -325,107 +298,7 @@ section{
 </header>
 
 <!-- CAREER -->
-<section id="career">
-  <div class="section-inner">
-    <h2 class="section-title">Professional Experience</h2>
-
-    <div class="accordion-item">
-      <button class="accordion-title">🎭 Theatre & Musical Theatre</button>
-      <div class="accordion-content">
-        <div class="accordion-inner">
-          <ul>
-            <li><strong>Sunny Day</strong> – Mirko (I am studio, 2023–2025)</li>
-            <li><strong>DemonЯ</strong> – Nikolinka (Chamber Stage “Slavyanska Beseda”, 2022–2026)</li>
-            <li><strong>Invisible Child</strong> – workshop (State Puppet Theatre Stara Zagora, 2022)</li>
-            <li><strong>The Tale of the Clown Ronald</strong> (Cosmos Working Group, 2015)</li>
-            <li><strong>Beside You</strong> (I am studio, 2015)</li>
-            <li><strong>Natasha’s Dream</strong> – Natasha (Ivan Vazov National Theatre, 2014)</li>
-            <li><strong>The Caucasian Chalk Circle</strong> – Michaela (Youth Theatre “Nikolay Binev”, 2012)</li>
-            <li><strong>Moon Children</strong> – Ruth (NATFA, 2012)</li>
-            <li><strong>Provincial Anecdotes</strong> – Faina (NATFA, 2012)</li>
-            <li><strong>American Beauty</strong> – Frances (NATFA, 2012)</li>
-            <li><strong>Grease</strong> – Mary-Jo (Varna State Opera, 2022)</li>
-            <li><strong>Zorro</strong> – Luisa (Varna State Opera, 2018)</li>
-            <li><strong>The Hunchback of Notre-Dame</strong> – Esmeralda (2015)</li>
-            <li><strong>Momo</strong> / <strong>The Wizard of Oz</strong> (Youth Theatre “Nikolay Binev”, 2014)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-title">🎬 Film, TV & Commercials</button>
-      <div class="accordion-content">
-        <div class="accordion-inner">
-          <ul>
-            <li><strong>Maestro Vili Kazasyan</strong> – Reporter</li>
-            <li><strong>The Misfits</strong> – Student</li>
-            <li><strong>Guilt</strong> – Valkana</li>
-            <li><strong>Revolution Z</strong> – Zhanna (Journalist)</li>
-            <li>Commercials: Devin, Eddy’s Pizza, Heineken</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-title">🎙 Voice Acting & Other</button>
-      <div class="accordion-content">
-        <div class="accordion-inner">
-          <ul>
-            <li>Total Drama: The Ridonculous Race – Jen</li>
-            <li>Ice Age: Collision Course – Peaches</li>
-            <li>ASKER Awards 2011 – Vocal performer</li>
-            <li>Sofia International Film Festival – Trailer (Charlie Chaplin)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-title">🎓 Education</button>
-      <div class="accordion-content">
-        <div class="accordion-inner">
-          <ul>
-            <li>NATFA “Krastyo Sarafov” – Acting for Dramatic Theatre</li>
-            <li>Acting for Camera Workshop – Deyan Rusev</li>
-            <li>Fine Arts – National School of Arts, Varna</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-title">🛠 Skills</button>
-      <div class="accordion-content">
-        <div class="accordion-inner">
-          <ul>
-            <li>Singing (Mezzo-soprano)</li>
-            <li>Guitar</li>
-            <li>Dance (Classical, Jazz, Swing, Folk)</li>
-            <li>Puppet Theatre Acting</li>
-            <li>Stage Combat & Acrobatics</li>
-            <li>Drawing & Painting</li>
-            <li>English – C1</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-title">🎨 Creative Projects</button>
-      <div class="accordion-content">
-        <div class="accordion-inner">
-          <p>
-            Co-author and visual artist of the interactive game
-            <strong>"Дръж се, Земьо!"</strong>.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
+<!-- CAREER --> <section id="career"> <div class="section-inner"> <h2 class="section-title">Professional Experience</h2> <div class="accordion-item"> <button class="accordion-title">🎭 Theatre & Musical Theatre</button> <div class="accordion-content"> <div class="accordion-inner"> <ul> <li><strong>Sunny Day</strong> – Mirko (I am studio, 2023–2025)</li> <li><strong>DemonЯ</strong> – Nikolinka (Chamber Stage “Slavyanska Beseda”, 2022–2026)</li> <li><strong>Invisible Child</strong> – workshop (State Puppet Theatre Stara Zagora, 2022)</li> <li><strong>The Tale of the Clown Ronald</strong> (Cosmos Working Group, 2015)</li> <li><strong>Beside You</strong> (I am studio, 2015)</li> <li><strong>Natasha’s Dream</strong> – Natasha (Ivan Vazov National Theatre, 2014)</li> <li><strong>The Caucasian Chalk Circle</strong> – Michaela (Youth Theatre “Nikolay Binev”, 2012)</li> <li><strong>Moon Children</strong> – Ruth (NATFA, 2012)</li> <li><strong>Provincial Anecdotes</strong> – Faina (NATFA, 2012)</li> <li><strong>American Beauty</strong> – Frances (NATFA, 2012)</li> <li><strong>Grease</strong> – Mary-Jo (Varna State Opera, 2022)</li> <li><strong>Zorro</strong> – Luisa (Varna State Opera, 2018)</li> <li><strong>The Hunchback of Notre-Dame</strong> – Esmeralda (2015)</li> <li><strong>Momo</strong> / <strong>The Wizard of Oz</strong> (Youth Theatre “Nikolay Binev”, 2014)</li> </ul> </div> </div> </div> <div class="accordion-item"> <button class="accordion-title">🎬 Film, TV & Commercials</button> <div class="accordion-content"> <div class="accordion-inner"> <ul> <li><strong>Maestro Vili Kazasyan</strong> – Reporter</li> <li><strong>The Misfits</strong> – Student</li> <li><strong>Guilt</strong> – Valkana</li> <li><strong>Revolution Z</strong> – Zhanna (Journalist)</li> <li>Commercials: Devin, Eddy’s Pizza, Heineken</li> </ul> </div> </div> </div> <div class="accordion-item"> <button class="accordion-title">🎙 Voice Acting & Other</button> <div class="accordion-content"> <div class="accordion-inner"> <ul> <li>Total Drama: The Ridonculous Race – Jen</li> <li>Ice Age: Collision Course – Peaches</li> <li>ASKER Awards 2011 – Vocal performer</li> <li>Sofia International Film Festival – Trailer (Charlie Chaplin)</li> </ul> </div> </div> </div> <div class="accordion-item"> <button class="accordion-title">🎓 Education</button> <div class="accordion-content"> <div class="accordion-inner"> <ul> <li>NATFA “Krastyo Sarafov” – Acting for Dramatic Theatre</li> <li>Acting for Camera Workshop – Deyan Rusev</li> <li>Fine Arts – National School of Arts, Varna</li> </ul> </div> </div> </div> <div class="accordion-item"> <button class="accordion-title">🛠 Skills</button> <div class="accordion-content"> <div class="accordion-inner"> <ul> <li>Singing (Mezzo-soprano)</li> <li>Guitar</li> <li>Dance (Classical, Jazz, Swing, Folk)</li> <li>Puppet Theatre Acting</li> <li>Stage Combat & Acrobatics</li> <li>Drawing & Painting</li> <li>English – C1</li> </ul> </div> </div> </div> <div class="accordion-item"> <button class="accordion-title">🎨 Creative Projects</button> <div class="accordion-content"> <div class="accordion-inner"> <p> Co-author and visual artist of the interactive game <strong>"Дръж се, Земьо!"</strong>. </p> </div> </div> </div> </div> </section>
 
 <!-- GALLERY -->
 <section id="gallery">
@@ -477,17 +350,24 @@ document.querySelectorAll('.accordion-title').forEach(btn=>{
 let gi=0;
 const gtrack=document.getElementById('gtrack');
 const gslides=gtrack.children;
-document.getElementById('next').onclick=()=>{gi=(gi+1)%gslides.length;gtrack.style.transform=`translateX(-${gi*100}%)`;}
-document.getElementById('prev').onclick=()=>{gi=(gi-1+gslides.length)%gslides.length;gtrack.style.transform=`translateX(-${gi*100}%)`;}
+document.getElementById('next').onclick=()=>{
+  gi=(gi+1)%gslides.length;
+  gtrack.style.transform=`translateX(-${gi*100}%)`;
+}
+document.getElementById('prev').onclick=()=>{
+  gi=(gi-1+gslides.length)%gslides.length;
+  gtrack.style.transform=`translateX(-${gi*100}%)`;
+}
 
 /* NAV */
 const navToggle=document.getElementById("navToggle");
 const navLinks=document.getElementById("navLinks");
-navToggle.onclick=()=>navLinks.classList.toggle("open");
 
+navToggle.onclick=()=>navLinks.classList.toggle("open");
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.onclick=()=>navLinks.classList.remove("open");
+});
 </script>
 
 </body>
 </html>
-
-
