@@ -629,9 +629,15 @@ function applyLang(lang){
   document.documentElement.lang = (lang === "bg" ? "bg" : "en");
   langBtn.textContent = (lang === "en" ? "BG" : "EN");
 
+  // сменяме текста
   document.querySelectorAll("[data-en]").forEach(el=>{
     const html = el.dataset[lang];
     if (html !== undefined) el.innerHTML = html;
+  });
+
+  // 🔥 ЗАТВАРЯМЕ ВСИЧКИ ОТВОРЕНИ АКОРДЕОНИ
+  document.querySelectorAll(".accordion-content").forEach(acc=>{
+    acc.style.maxHeight = null;
   });
 }
 
@@ -642,5 +648,6 @@ langBtn.addEventListener("click", ()=>{
 
 </body>
 </html>
+
 
 
