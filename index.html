@@ -93,6 +93,19 @@ body{
   cursor:pointer;
 }
 
+/* EN/BG toggle button */
+.lang-toggle{
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.35);
+  color:#fff;
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  margin-left:12px;
+}
+.lang-toggle:hover{ background:rgba(255,255,255,.20); }
+
 /* ================= HERO ================= */
 .hero{
   min-height:100vh;
@@ -188,7 +201,7 @@ section{
 }
 
 .accordion-inner ul{padding-left:18px}
-.accordion-inner li{margin-bottom:6px}
+.accordion-inner li{margin-bottom:10px}
 
 /* ================= GALLERY ================= */
 .gallery-wrapper{
@@ -242,7 +255,8 @@ section{
   .gallery-slide{height:260px}
   .contact-grid{grid-template-columns:1fr}
 }
-  @media(max-width:768px){
+
+@media(max-width:768px){
   .hero{
     background-position: center 20%;
   }
@@ -251,7 +265,6 @@ section{
     margin-top:300px;
   }
 }
-
 </style>
 </head>
 
@@ -264,22 +277,35 @@ section{
       <div class="nav-logo"><img src="images/logoimage.jpg"></div>
       <div class="nav-name">SOPHIA LULCHEVA</div>
     </div>
+
     <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#career">Career</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-en="About" data-bg="За мен">About</a>
+      <a href="#career" data-en="Career" data-bg="Път">Career</a>
+      <a href="#gallery" data-en="Gallery" data-bg="Галерия">Gallery</a>
+      <a href="#contact" data-en="Contact" data-bg="Контакт">Contact</a>
     </div>
-    <button class="nav-toggle" id="navToggle">☰</button>
+
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="lang-toggle" id="langToggle">BG</button>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
   </div>
 </div>
 
 <!-- HERO -->
 <header class="hero" id="about">
   <div class="hero-inner">
-    <div class="hero-pill">Actress • Musical Theatre Performer • Puppeteer</div>
-    <h1>Sophia Ruhova Lulcheva</h1>
-    <p>
+    <div class="hero-pill"
+         data-en="Actress • Musical Theatre Performer • Puppeteer"
+         data-bg="Актриса • Музикален театър • Куклен театър">
+      Actress • Musical Theatre Performer • Puppeteer
+    </div>
+
+    <h1 data-en="Sophia Ruhova Lulcheva" data-bg="София Рухова Лулчева">Sophia Ruhova Lulcheva</h1>
+
+    <p
+      data-en="Professional actress with experience in musical theatre, drama theatre, puppet theatre, film, television, voice acting and independent stage projects. Her work combines physical theatre, vocal performance, movement and visual artistry."
+      data-bg="Професионална актриса с опит в музикален, драматичен и куклен театър, кино, телевизия, дублаж и независими сценични проекти. Работата ѝ съчетава физически театър, вокално изпълнение, движение и визуално изкуство.">
       Professional actress with experience in musical theatre, drama theatre,
       puppet theatre, film, television, voice acting and independent stage projects.
       Her work combines physical theatre, vocal performance, movement and visual artistry.
@@ -288,108 +314,251 @@ section{
 </header>
 
 <!-- CAREER -->
-<!-- CAREER --> <section id="career"> <div class="section-inner"> <h2 class="section-title">Professional Experience</h2> <div class="accordion-item"> <button class="accordion-title">🎭 Theatre & Musical Theatre</button> <div class="accordion-content"> <div class="accordion-inner"> <ul>
-  <li>
-    <strong>DemonЯ</strong> – Nikolinka · Director: Ovanes Torosyan (2022–2026)
-  </li>
+<section id="career">
+  <div class="section-inner">
+    <h2 class="section-title"
+        data-en="Professional Experience"
+        data-bg="Професионален опит">
+      Professional Experience
+    </h2>
 
-  <li>
-    <strong>Sunny Day</strong> – Mirko  
-    <br>I Am Studio · Director: Lyubomir Kolaksazov (2023–2025)
-  </li>
+    <div class="accordion-item">
+      <button class="accordion-title"
+              data-en="🎭 Theatre & Musical Theatre"
+              data-bg="🎭 Театър и музикален театър">
+        🎭 Theatre & Musical Theatre
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <ul>
+            <li data-en="<strong>DemonЯ</strong> – Nikolinka · Director: Ovanes Torosyan (2022–2026)"
+                data-bg="<strong>DemonЯ</strong> – Николинка · Режисьор: Ованес Торосян (2022–2026)">
+              <strong>DemonЯ</strong> – Nikolinka · Director: Ovanes Torosyan (2022–2026)
+            </li>
 
-  <li>
-    <strong>Invisible Child</strong> – workshop  
-    <br>State Puppet Theatre Stara Zagora · Director: Veselka Kuncheva (2022)
-  </li>
+            <li data-en="<strong>Sunny Day</strong> – Mirko<br>I Am Studio · Director: Lyubomir Kolaksazov (2023–2025)"
+                data-bg="<strong>Sunny Day</strong> – Мирко<br>I Am Studio · Режисьор: Любомир Колаксъзов (2023–2025)">
+              <strong>Sunny Day</strong> – Mirko
+              <br>I Am Studio · Director: Lyubomir Kolaksazov (2023–2025)
+            </li>
 
-  <li>
-    <strong>Grease</strong> – Mary Joe  
-<br>State Opera Varna · Director: Srebrina Sokolova (2022)
-  </li>
+            <li data-en="<strong>Invisible Child</strong> – workshop<br>State Puppet Theatre Stara Zagora · Director: Veselka Kuncheva (2022)"
+                data-bg="<strong>Invisible Child</strong> – уъркшоп<br>Държавен куклен театър „Стара Загора“ · Режисьор: Веселка Кунчева (2022)">
+              <strong>Invisible Child</strong> – workshop
+              <br>State Puppet Theatre Stara Zagora · Director: Veselka Kuncheva (2022)
+            </li>
 
-  <li>
-    <strong>Zorro</strong> – Luiza  
-<br>State Opera Varna · Director: Petko Bonev (2018)
-  </li>
+            <li data-en="<strong>Grease</strong> – Mary Joe<br>State Opera Varna · Director: Srebrina Sokolova (2022)"
+                data-bg="<strong>Grease</strong> – Мери Джо<br>Държавна опера Варна · Режисьор: Сребрина Соколова (2022)">
+              <strong>Grease</strong> – Mary Joe
+              <br>State Opera Varna · Director: Srebrina Sokolova (2022)
+            </li>
 
-  <li>
-    <strong>Notre Dame de Paris</strong> – Esmeralda  
-<br>Open Scene “Salza I smyah” · Arrangement: Assoc. Prof. Danko Yordanov (2015)
-  </li>
+            <li data-en="<strong>Zorro</strong> – Luiza<br>State Opera Varna · Director: Petko Bonev (2018)"
+                data-bg="<strong>Zorro</strong> – Луиза<br>Държавна опера Варна · Режисьор: Петко Бонев (2018)">
+              <strong>Zorro</strong> – Luiza
+              <br>State Opera Varna · Director: Petko Bonev (2018)
+            </li>
 
-  <li>
-    <strong>The Story of Ronald, the Clown from McDonald's</strong>  
-<br>Cosmos Working Group · Director: Ovanes Torosyan (2015)
-  </li>
+            <li data-en="<strong>Notre Dame de Paris</strong> – Esmeralda<br>Open Scene “Salza I smyah” · Arrangement: Assoc. Prof. Danko Yordanov (2015)"
+                data-bg="<strong>Notre Dame de Paris</strong> – Есмералда<br>Открита сцена „Сълза и смях“ · Аранжимент: доц. Данко Йорданов (2015)">
+              <strong>Notre Dame de Paris</strong> – Esmeralda
+              <br>Open Scene “Salza I smyah” · Arrangement: Assoc. Prof. Danko Yordanov (2015)
+            </li>
 
-  <li>
-    <strong>Beside You</strong>  
-    <br>I Am Studio · Director: Margarita Macheva (2015)
-  </li>
+            <li data-en="<strong>The Story of Ronald, the Clown from McDonald's</strong><br>Cosmos Working Group · Director: Ovanes Torosyan (2015)"
+                data-bg="<strong>The Story of Ronald, the Clown from McDonald's</strong><br>Cosmos Working Group · Режисьор: Ованес Торосян (2015)">
+              <strong>The Story of Ronald, the Clown from McDonald's</strong>
+              <br>Cosmos Working Group · Director: Ovanes Torosyan (2015)
+            </li>
 
-  <li>
-    <strong>Momo</strong>  
-    <br>Youth Theatre “Nikolay Binev” · Director: Veselka Kuncheva (2014)
-  </li>
+            <li data-en="<strong>Beside You</strong><br>I Am Studio · Director: Margarita Macheva (2015)"
+                data-bg="<strong>Beside You</strong><br>I Am Studio · Режисьор: Маргарита Мачева (2015)">
+              <strong>Beside You</strong>
+              <br>I Am Studio · Director: Margarita Macheva (2015)
+            </li>
 
-  <li>
-    <strong>Natasha’s Dream</strong> – Natasha  
-    <br>Ivan Vazov National Theatre · Director: Ovanes Torosyan (2014)
-  </li>
+            <li data-en="<strong>Momo</strong><br>Youth Theatre “Nikolay Binev” · Director: Veselka Kuncheva (2014)"
+                data-bg="<strong>Momo</strong><br>Младежки театър „Николай Бинев“ · Режисьор: Веселка Кунчева (2014)">
+              <strong>Momo</strong>
+              <br>Youth Theatre “Nikolay Binev” · Director: Veselka Kuncheva (2014)
+            </li>
 
-  <li>
-    <strong>The Caucasian Chalk Circle</strong> – Michaela  
-    <br>Youth Theatre “Nikolay Binev” · Director: Ivaylo Hristov (2012)
-  </li>
+            <li data-en="<strong>Natasha’s Dream</strong> – Natasha<br>Ivan Vazov National Theatre · Director: Ovanes Torosyan (2014)"
+                data-bg="<strong>Natasha’s Dream</strong> – Наташа<br>Народен театър „Иван Вазов“ · Режисьор: Ованес Торосян (2014)">
+              <strong>Natasha’s Dream</strong> – Natasha
+              <br>Ivan Vazov National Theatre · Director: Ovanes Torosyan (2014)
+            </li>
 
-  <li>
-    <strong>Moon Children</strong> – Ruth  
-    <br>NATFA “Krastyo Sarafov” · Director: Martin Kiselov (2012)
-  </li>
+            <li data-en="<strong>The Caucasian Chalk Circle</strong> – Michaela<br>Youth Theatre “Nikolay Binev” · Director: Ivaylo Hristov (2012)"
+                data-bg="<strong>The Caucasian Chalk Circle</strong> – Михайло<br>Младежки театър „Николай Бинев“ · Режисьор: Ивайло Христов (2012)">
+              <strong>The Caucasian Chalk Circle</strong> – Michaela
+              <br>Youth Theatre “Nikolay Binev” · Director: Ivaylo Hristov (2012)
+            </li>
 
-  <li>
-    <strong>Provincial Anecdotes</strong> – Faina  
-    <br>NATFA “Krastyo Sarafov” · Director: Ivaylo Hristov (2012)
-  </li>
+            <li data-en="<strong>Moon Children</strong> – Ruth<br>NATFA “Krastyo Sarafov” · Director: Martin Kiselov (2012)"
+                data-bg="<strong>Moon Children</strong> – Рут<br>НАТФИЗ „Кръстьо Сарафов“ · Режисьор: Мартин Киселов (2012)">
+              <strong>Moon Children</strong> – Ruth
+              <br>NATFA “Krastyo Sarafov” · Director: Martin Kiselov (2012)
+            </li>
 
-  <li>
-    <strong>American Beauty</strong> – Frances  
-    <br>NATFA “Krastyo Sarafov” · Director: Ivaylo Hristov (2012)
-  </li>
+            <li data-en="<strong>Provincial Anecdotes</strong> – Faina<br>NATFA “Krastyo Sarafov” · Director: Ivaylo Hristov (2012)"
+                data-bg="<strong>Provincial Anecdotes</strong> – Файна<br>НАТФИЗ „Кръстьо Сарафов“ · Режисьор: Ивайло Христов (2012)">
+              <strong>Provincial Anecdotes</strong> – Faina
+              <br>NATFA “Krastyo Sarafov” · Director: Ivaylo Hristov (2012)
+            </li>
 
-  <li>
-    <strong>The Wizard of Oz</strong>  
-    <br>Varna Children & Youth Opera (2004)
-  </li>
-</ul>
+            <li data-en="<strong>American Beauty</strong> – Frances<br>NATFA “Krastyo Sarafov” · Director: Ivaylo Hristov (2012)"
+                data-bg="<strong>American Beauty</strong> – Франсис<br>НАТФИЗ „Кръстьо Сарафов“ · Режисьор: Ивайло Христов (2012)">
+              <strong>American Beauty</strong> – Frances
+              <br>NATFA “Krastyo Sarafov” · Director: Ivaylo Hristov (2012)
+            </li>
 
- </div> </div> </div> <div class="accordion-item">
-   <button class="accordion-title">🎬 Film, TV & Commercials</button>
-   <div class="accordion-content"> <div class="accordion-inner">
-     <ul> <li><strong>Maestro Vili Kazasyan</strong> – Reporter</li> <li><strong>Losers</strong> – Student</li>
-<li><strong>The Grapes of Guilt</strong> – Valkana</li>
- <li><strong>Revolution Z</strong> – Zhanna (Journalist)</li> <li>Commercials: Devin, Eddy’s Pizza, Heineken</li> </ul>
-   </div> </div> </div> <div class="accordion-item"> <button class="accordion-title">🎙 Voice Acting & Other</button> <div class="accordion-content"> <div class="accordion-inner"> <ul>
-     <li>Total Drama: The Ridonculous Race – Jen</li> <li>Ice Age: Collision Course – Peaches</li>
-     <li>ASKER Awards 2011 – Vocal performer</li> <li>Sofia International Film Festival – Trailer (Charlie Chaplin)</li> </ul> </div> </div> </div> <div class="accordion-item">
-       <button class="accordion-title">🎓 Education</button> <div class="accordion-content"> <div class="accordion-inner"> <ul> <li>NATFA “Krastyo Sarafov” – Acting for Drama Theatre</li>
-         <li>Acting for Camera Workshop – Deyan Rusev</li> <li>Education Fine Arts - HNI "K. Preslavski", Varna</li>
- </ul> </div> </div> </div> <div class="accordion-item"> <button class="accordion-title">🛠 Skills</button> <div class="accordion-content"> <div class="accordion-inner"> <ul> <li>Singing (Mezzo-soprano)</li> <li>Dance (Classical, Jazz, Swing, Folk)</li> <li>Puppet Theatre Acting</li> <li>Stage Combat & Acrobatics</li> <li>Drawing & Painting</li> <li>English – C1</li> </ul> </div> </div> </div> <div class="accordion-item"> <button class="accordion-title">🎨 Creative Projects</button> <div class="accordion-content"> <div class="accordion-inner">
-   <p>
-  Co-author and visual artist of the interactive game
-  <strong>
-    <a href="https://www.facebook.com/HoldOnEarth" target="_blank" rel="noopener">
-      "Дръж се, Земьо!"
-    </a>
-  </strong>.
-</p>
- </div> </div> </div> </div> </section>
+            <li data-en="<strong>The Wizard of Oz</strong><br>Varna Children & Youth Opera (2004)"
+                data-bg="<strong>The Wizard of Oz</strong><br>Варненска детско-юношеска опера (2004)">
+              <strong>The Wizard of Oz</strong>
+              <br>Varna Children & Youth Opera (2004)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-title"
+              data-en="🎬 Film, TV & Commercials"
+              data-bg="🎬 Филм, ТВ и реклами">
+        🎬 Film, TV & Commercials
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <ul>
+            <li data-en="<strong>Maestro Vili Kazasyan</strong> – Reporter"
+                data-bg="<strong>Maestro Vili Kazasyan</strong> – репортерка">
+              <strong>Maestro Vili Kazasyan</strong> – Reporter
+            </li>
+            <li data-en="<strong>Losers</strong> – Student"
+                data-bg="<strong>Losers</strong> – ученичка">
+              <strong>Losers</strong> – Student
+            </li>
+            <li data-en="<strong>The Grapes of Guilt</strong> – Valkana"
+                data-bg="<strong>The Grapes of Guilt</strong> – Вълкана">
+              <strong>The Grapes of Guilt</strong> – Valkana
+            </li>
+            <li data-en="<strong>Revolution Z</strong> – Zhanna (Journalist)"
+                data-bg="<strong>Revolution Z</strong> – Жана (журналистка)">
+              <strong>Revolution Z</strong> – Zhanna (Journalist)
+            </li>
+            <li data-en="Commercials: Devin, Eddy’s Pizza, Heineken"
+                data-bg="Реклами: Devin, Eddy’s Pizza, Heineken">
+              Commercials: Devin, Eddy’s Pizza, Heineken
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-title"
+              data-en="🎙 Voice Acting & Other"
+              data-bg="🎙 Дублаж и други">
+        🎙 Voice Acting & Other
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <ul>
+            <li data-en="Total Drama: The Ridonculous Race – Jen"
+                data-bg="Total Drama: The Ridonculous Race – Джен">
+              Total Drama: The Ridonculous Race – Jen
+            </li>
+            <li data-en="Ice Age: Collision Course – Peaches"
+                data-bg="Ice Age: Collision Course – Peaches">
+              Ice Age: Collision Course – Peaches
+            </li>
+            <li data-en="ASKER Awards 2011 – Vocal performer"
+                data-bg="АСКЕЕР 2011 – певица">
+              ASKER Awards 2011 – Vocal performer
+            </li>
+            <li data-en="Sofia International Film Festival – Trailer (Charlie Chaplin)"
+                data-bg="София Филм Фест – трейлър (Чарли Чаплин)">
+              Sofia International Film Festival – Trailer (Charlie Chaplin)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-title"
+              data-en="🎓 Education"
+              data-bg="🎓 Образование">
+        🎓 Education
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <ul>
+            <li data-en="NATFA “Krastyo Sarafov” – Acting for Drama Theatre"
+                data-bg="НАТФИЗ „Кръстьо Сарафов“ – Актьорство за драматичен театър">
+              NATFA “Krastyo Sarafov” – Acting for Drama Theatre
+            </li>
+            <li data-en="Acting for Camera Workshop – Deyan Rusev"
+                data-bg="Уъркшоп за актьорско майсторство пред камера – Деян Русев">
+              Acting for Camera Workshop – Deyan Rusev
+            </li>
+            <li data-en="Fine Arts – HNI “K. Preslavski”, Varna"
+                data-bg="Изобразително изкуство – НГХНИ „К. Преславски“, Варна">
+              Fine Arts – HNI “K. Preslavski”, Varna
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-title"
+              data-en="🛠 Skills"
+              data-bg="🛠 Умения">
+        🛠 Skills
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <ul>
+            <li data-en="Singing (Mezzo-soprano)" data-bg="Пеене (мецосопран)">Singing (Mezzo-soprano)</li>
+            <li data-en="Dance (Classical, Jazz, Swing, Folk)" data-bg="Танци (класически, джаз, суинг, народни)">Dance (Classical, Jazz, Swing, Folk)</li>
+            <li data-en="Puppet Theatre Acting" data-bg="Актьорство за куклен театър">Puppet Theatre Acting</li>
+            <li data-en="Stage Combat & Acrobatics" data-bg="Сценичен бой и акробатика">Stage Combat & Acrobatics</li>
+            <li data-en="Drawing & Painting" data-bg="Рисуване и живопис">Drawing & Painting</li>
+            <li data-en="English – C1" data-bg="Английски – C1">English – C1</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-title"
+              data-en="🎨 Creative Projects"
+              data-bg="🎨 Творчески проекти">
+        🎨 Creative Projects
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p
+            data-en='Co-author and visual artist of the interactive game <strong><a href="https://www.facebook.com/DRUJSI.ZEMIO" target="_blank" rel="noopener">"Дръж се, Земьо!"</a></strong>.'
+            data-bg='Съавтор и художник на интерактивната игра <strong><a href="https://www.facebook.com/DRUJSI.ZEMIO" target="_blank" rel="noopener">„Дръж се, Земьо!“</a></strong>.'>
+            Co-author and visual artist of the interactive game
+            <strong><a href="https://www.facebook.com/DRUJSI.ZEMIO" target="_blank" rel="noopener">"Дръж се, Земьо!"</a></strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- GALLERY -->
 <section id="gallery">
   <div class="section-inner">
-    <h2 class="section-title">Gallery</h2>
+    <h2 class="section-title" data-en="Gallery" data-bg="Галерия">Gallery</h2>
     <div class="gallery-wrapper">
       <div class="gallery-track" id="gtrack">
         <div class="gallery-slide" style="background-image:url('images/image01.jpg')"></div>
@@ -405,21 +574,23 @@ section{
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <h2 class="section-title">Contact</h2>
+    <h2 class="section-title" data-en="Contact" data-bg="Контакт">Contact</h2>
     <div class="contact-grid">
       <div class="contact-box">
-        <h3>📧 Email</h3>
+        <h3 data-en="📧 Email" data-bg="📧 Имейл">📧 Email</h3>
         <p>sruhova@yahoo.com</p>
       </div>
       <div class="contact-box">
-        <h3>📞 Phone</h3>
+        <h3 data-en="📞 Phone" data-bg="📞 Телефон">📞 Phone</h3>
         <p>+359 887 549 331</p>
       </div>
     </div>
   </div>
 </section>
 
-<footer style="text-align:center;padding:40px 0;color:#777">
+<footer style="text-align:center;padding:40px 0;color:#777"
+        data-en="© 2026 Sophia Ruhova Lulcheva – Portfolio"
+        data-bg="© 2026 София Рухова Лулчева – Портфолио">
 © 2026 Sophia Ruhova Lulcheva – Portfolio
 </footer>
 
@@ -428,7 +599,7 @@ section{
 document.querySelectorAll('.accordion-title').forEach(btn=>{
   btn.onclick=()=>{
     const c=btn.nextElementSibling;
-    c.style.maxHeight=c.style.maxHeight?null:c.scrollHeight+"px";
+    c.style.maxHeight = c.style.maxHeight ? null : (c.scrollHeight + "px");
   }
 });
 
@@ -445,23 +616,29 @@ document.getElementById('prev').onclick=()=>{
   gtrack.style.transform=`translateX(-${gi*100}%)`;
 }
 
-/* NAV */
+/* NAV (left as-is; you can add mobile later) */
 const navToggle=document.getElementById("navToggle");
 const navLinks=document.getElementById("navLinks");
 
+/* EN/BG TOGGLE (WORKING) */
+let currentLang = "en";
+const langBtn = document.getElementById("langToggle");
 
+function applyLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = (lang === "bg" ? "bg" : "en");
+  langBtn.textContent = (lang === "en" ? "BG" : "EN");
+
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    const html = el.dataset[lang];
+    if (html !== undefined) el.innerHTML = html;
+  });
+}
+
+langBtn.addEventListener("click", ()=>{
+  applyLang(currentLang === "en" ? "bg" : "en");
+});
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
